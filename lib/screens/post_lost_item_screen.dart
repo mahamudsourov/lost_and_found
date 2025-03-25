@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PostLostItemScreen extends StatefulWidget {
+  const PostLostItemScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _PostLostItemScreenState createState() => _PostLostItemScreenState();
 }
 

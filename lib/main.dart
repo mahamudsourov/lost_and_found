@@ -8,6 +8,8 @@ void main() {
 }
 
 class LostAndFoundApp extends StatelessWidget {
+  const LostAndFoundApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

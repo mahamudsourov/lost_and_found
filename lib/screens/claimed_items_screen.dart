@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ClaimedItemsScreen extends StatelessWidget {
+  const ClaimedItemsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

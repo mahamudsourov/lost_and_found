@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LostItemsScreen extends StatelessWidget {
+  const LostItemsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

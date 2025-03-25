@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PostFoundItemScreen extends StatefulWidget {
+  const PostFoundItemScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _PostFoundItemScreenState createState() => _PostFoundItemScreenState();
 }
 
