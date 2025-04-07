@@ -57,14 +57,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'User Name',
+                        'Tamim Iqbal',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        'user@example.com',
+                        'Tamim@gmail.com',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
