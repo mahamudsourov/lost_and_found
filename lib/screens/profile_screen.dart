@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
+<<<<<<< HEAD
   final List<Map<String, String>> claimedItems = [];
   final List<Map<String, String>> postedItems = [];
+=======
+  final List<Map<String, String>> claimedItems =
+      []; 
+  final List<Map<String, String>> postedItems =
+      []; 
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +58,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
   void _showPostedItems(BuildContext context) {
     showDialog(
       context: context,
@@ -59,7 +70,13 @@ class ProfileScreen extends StatelessWidget {
             title: Text("My Posted Items"),
             content:
                 postedItems.isEmpty
+<<<<<<< HEAD
                     ? Text("No items posted yet.")
+=======
+                    ? Text(
+                      "No items posted yet.",
+                    ) 
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                     : Column(
                       mainAxisSize: MainAxisSize.min,
                       children:
@@ -80,6 +97,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
   void _showClaimedItems(BuildContext context) {
     showDialog(
       context: context,
@@ -88,7 +109,13 @@ class ProfileScreen extends StatelessWidget {
             title: Text("Claimed Items"),
             content:
                 claimedItems.isEmpty
+<<<<<<< HEAD
                     ? Text("No items claimed yet.")
+=======
+                    ? Text(
+                      "No items claimed yet.",
+                    ) 
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                     : Column(
                       mainAxisSize: MainAxisSize.min,
                       children:

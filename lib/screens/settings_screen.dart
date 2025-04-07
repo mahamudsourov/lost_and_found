@@ -9,15 +9,28 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool _isNotificationEnabled = true;
+<<<<<<< HEAD
   bool _isDarkModeEnabled = false;
 
+=======
+  bool _isDarkModeEnabled = false; 
+
+  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
   void _toggleDarkMode(bool value) {
     setState(() {
       _isDarkModeEnabled = value;
     });
     if (_isDarkModeEnabled) {
+<<<<<<< HEAD
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     } else {
+=======
+      
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    } else {
+      
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     }
   }
@@ -35,7 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile Section
+            
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -71,9 +84,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 20),
 
+<<<<<<< HEAD
             Expanded(
               child: ListView(
                 children: [
+=======
+            
+            Expanded(
+              child: ListView(
+                children: [
+                  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ListTile(
                     leading: Icon(
                       Icons.notifications,
@@ -99,12 +120,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
+<<<<<<< HEAD
+=======
+                  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ListTile(
                     leading: Icon(Icons.dark_mode, color: Colors.blueAccent),
                     title: Text('Dark Mode'),
                     trailing: Switch(
                       value: _isDarkModeEnabled,
+<<<<<<< HEAD
                       onChanged: _toggleDarkMode,
+=======
+                      onChanged: _toggleDarkMode, 
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                     ),
                     tileColor: Colors.blue[50],
                     shape: RoundedRectangleBorder(
@@ -117,6 +146,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
+<<<<<<< HEAD
+=======
+                  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ListTile(
                     leading: Icon(Icons.lock, color: Colors.blueAccent),
                     title: Text('Privacy & Security'),
@@ -132,10 +165,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
+<<<<<<< HEAD
+=======
+                  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ListTile(
                     leading: Icon(Icons.info, color: Colors.blueAccent),
                     title: Text('About Us'),
                     onTap: () {
+<<<<<<< HEAD
+=======
+                      
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -177,10 +218,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
+<<<<<<< HEAD
+=======
+                  
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ListTile(
                     leading: Icon(Icons.logout, color: Colors.blueAccent),
                     title: Text('Logout'),
                     onTap: () {
+<<<<<<< HEAD
+=======
+                      
+>>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (_) => LoginScreen()),
