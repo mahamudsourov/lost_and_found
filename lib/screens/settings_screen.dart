@@ -9,18 +9,18 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool _isNotificationEnabled = true;
-  bool _isDarkModeEnabled = false; // Track dark mode state
+  bool _isDarkModeEnabled = false; 
 
-  // Function to toggle dark mode
+  
   void _toggleDarkMode(bool value) {
     setState(() {
       _isDarkModeEnabled = value;
     });
     if (_isDarkModeEnabled) {
-      // Switch to dark mode
+      
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     } else {
-      // Switch to light mode
+      
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     }
   }
@@ -38,7 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile Section
+            
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -57,14 +57,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Tamim Iqbal',
+                        'User Name',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        'Tamim@gmail.com',
+                        'user@example.com',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -74,11 +74,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 20),
 
-            // Settings List
+            
             Expanded(
               child: ListView(
                 children: [
-                  // Notifications
+                  
                   ListTile(
                     leading: Icon(
                       Icons.notifications,
@@ -104,13 +104,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
-                  // Dark Mode
+                  
                   ListTile(
                     leading: Icon(Icons.dark_mode, color: Colors.blueAccent),
                     title: Text('Dark Mode'),
                     trailing: Switch(
                       value: _isDarkModeEnabled,
-                      onChanged: _toggleDarkMode, // Toggle dark mode
+                      onChanged: _toggleDarkMode, 
                     ),
                     tileColor: Colors.blue[50],
                     shape: RoundedRectangleBorder(
@@ -123,7 +123,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
-                  // Privacy & Security
+                  
                   ListTile(
                     leading: Icon(Icons.lock, color: Colors.blueAccent),
                     title: Text('Privacy & Security'),
@@ -139,12 +139,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
-                  // About Us
+                  
                   ListTile(
                     leading: Icon(Icons.info, color: Colors.blueAccent),
                     title: Text('About Us'),
                     onTap: () {
-                      // Displaying team members in the About Us dialog
+                      
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -186,12 +186,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   SizedBox(height: 15),
 
-                  // Logout
+                  
                   ListTile(
                     leading: Icon(Icons.logout, color: Colors.blueAccent),
                     title: Text('Logout'),
                     onTap: () {
-                      // Navigate to the LoginScreen after logout
+                      
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (_) => LoginScreen()),

@@ -29,7 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
             Image.asset(
               'assets/images/login.png',
               height: 100,
-            ), // Add your logo here
+            ),
             SizedBox(height: 20),
             Text(
               'Create an Account',
@@ -103,7 +103,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
                           Colors
-                              .blueAccent, // Replaced primary with backgroundColor
+                              .blueAccent, 
                       padding: EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 100,
@@ -133,7 +133,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
+      ),
+    );
+  }
 }

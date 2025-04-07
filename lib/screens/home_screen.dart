@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Dummy Data for Lost and Found Items (for now, using static data)
+  
   List<Map<String, String>> lostItems = [
     {
       'title': 'Money Bag',
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('Lost & Found')),
-        backgroundColor: Color(0xFF007BFF), // Professional blue
+        backgroundColor: Color(0xFF007BFF),
       ),
       drawer: Drawer(
         child: ListView(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF007BFF),
-              ), // Primary blue
+              ), 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFF007BFF), // Primary blue
+        selectedItemColor: Color(0xFF007BFF), 
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
@@ -167,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
           FloatingActionButton.extended(
             label: Text("Post Found Item"),
             icon: Icon(Icons.add),
-            backgroundColor: Color(0xFF28A745), // Vibrant green
+            backgroundColor: Color(0xFF28A745), 
             onPressed: () {
               Navigator.push(
                 context,
@@ -203,7 +203,7 @@ class HomeContent extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
-          // Recent Posts Text
+         
           Container(
             padding: EdgeInsets.all(8),
             color: Colors.blue[100],
@@ -213,7 +213,7 @@ class HomeContent extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          // Lost Items Container Row
+        
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -235,7 +235,7 @@ class HomeContent extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20),
-          // Found Items Container Row
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -267,7 +267,7 @@ class HomeContent extends StatelessWidget {
     String imageUrl,
   ) {
     return Container(
-      width: 100, // Adjust size as necessary
+      width: 100,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.blue[50],

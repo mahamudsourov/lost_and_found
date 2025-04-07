@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Lost & Found',
-      theme: ThemeData.light(), // Light theme
-      darkTheme: ThemeData.dark(), // Dark theme
-      themeMode: ThemeMode.system, // The app uses the system default theme
-      home: LoginScreen(), // Login screen will be the starting screen
+      theme: ThemeData.light(), 
+      darkTheme: ThemeData.dark(), 
+      themeMode: ThemeMode.system, 
+      home: LoginScreen(), 
     );
   }
 }
