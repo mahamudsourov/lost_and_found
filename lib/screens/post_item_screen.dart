@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class PostItemScreen extends StatefulWidget {
   final String category;
@@ -13,22 +15,36 @@ class PostItemScreen extends StatefulWidget {
 class _PostItemScreenState extends State<PostItemScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+  File? _image;
+  String? _imageUrl;
 
-  // Submit the item to be posted
+  Future<void> _pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+        _imageUrl = pickedFile.path;
+      });
+    }
+  }
+
   void _submitItem() {
     if (titleController.text.isNotEmpty &&
-        descriptionController.text.isNotEmpty) {
-      // Ensure title and description are not null
+        descriptionController.text.isNotEmpty &&
+        _imageUrl != null) {
       widget.onNewItemPosted({
         'title': titleController.text,
         'description': descriptionController.text,
+        'imageUrl': _imageUrl!,
         'category': widget.category,
       });
-      Navigator.pop(context); // Go back to the previous screen
+      Navigator.pop(context);
     } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Please fill all fields.")));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please fill all fields and select an image.")),
+      );
     }
   }
 
@@ -44,19 +60,22 @@ class _PostItemScreenState extends State<PostItemScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            // Title Field
             TextField(
               controller: titleController,
               decoration: InputDecoration(labelText: 'Item Title'),
             ),
-            // Description Field
             TextField(
               controller: descriptionController,
               decoration: InputDecoration(labelText: 'Description'),
             ),
+            SizedBox(height: 10),
+            _image != null
+                ? Image.file(_image!, height: 200, fit: BoxFit.cover)
+                : Text("No Image Selected"),
+            ElevatedButton(onPressed: _pickImage, child: Text('Pick Image')),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: _submitItem, // Submit function
+              onPressed: _submitItem,
               child: Text(
                 widget.category == "lost"
                     ? 'Post Lost Item'
