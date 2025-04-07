@@ -101,13 +101,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-<<<<<<< HEAD
-                      backgroundColor: Colors.blueAccent,
-=======
                       backgroundColor:
                           Colors
                               .blueAccent, 
->>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                       padding: EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 100,

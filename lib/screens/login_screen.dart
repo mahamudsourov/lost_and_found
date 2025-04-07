@@ -67,11 +67,8 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-<<<<<<< HEAD
-=======
                 
                 
->>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                 if (emailController.text.isNotEmpty &&
                     passwordController.text.isNotEmpty) {
                   Navigator.pushReplacement(
@@ -79,22 +76,15 @@ class LoginScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (_) => HomeScreen()),
                   );
                 } else {
-<<<<<<< HEAD
-=======
                   
->>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Please enter valid credentials')),
                   );
                 }
               },
               style: ElevatedButton.styleFrom(
-<<<<<<< HEAD
-                backgroundColor: Colors.green,
-=======
                 backgroundColor:
                     Colors.green,
->>>>>>> 23f8b34a1a1a40fd9888b0b27f3eacf57e34c506
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
