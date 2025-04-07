@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final List<Map<String, String>> claimedItems =
-      []; // Example empty list for claimed items
-  final List<Map<String, String>> postedItems =
-      []; // Example empty list for posted items
+  final List<Map<String, String>> claimedItems = [];
+  final List<Map<String, String>> postedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +51,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Function to show the Posted Items list
   void _showPostedItems(BuildContext context) {
     showDialog(
       context: context,
@@ -62,9 +59,7 @@ class ProfileScreen extends StatelessWidget {
             title: Text("My Posted Items"),
             content:
                 postedItems.isEmpty
-                    ? Text(
-                      "No items posted yet.",
-                    ) // Message if there are no posted items
+                    ? Text("No items posted yet.")
                     : Column(
                       mainAxisSize: MainAxisSize.min,
                       children:
@@ -85,7 +80,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Function to show the Claimed Items list
   void _showClaimedItems(BuildContext context) {
     showDialog(
       context: context,
@@ -94,9 +88,7 @@ class ProfileScreen extends StatelessWidget {
             title: Text("Claimed Items"),
             content:
                 claimedItems.isEmpty
-                    ? Text(
-                      "No items claimed yet.",
-                    ) // Message if there are no claimed items
+                    ? Text("No items claimed yet.")
                     : Column(
                       mainAxisSize: MainAxisSize.min,
                       children:

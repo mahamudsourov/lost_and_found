@@ -11,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Dummy Data for Lost and Found Items (for now, using static data)
   List<Map<String, String>> lostItems = [
     {
       'title': 'Money Bag',

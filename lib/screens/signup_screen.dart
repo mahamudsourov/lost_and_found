@@ -101,9 +101,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors
-                              .blueAccent, // Replaced primary with backgroundColor
+                      backgroundColor: Colors.blueAccent,
                       padding: EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 100,
@@ -133,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
+      ),
+    );
+  }
 }
