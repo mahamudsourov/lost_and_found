@@ -18,21 +18,24 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, String>> lostItems = [
     {
       'title': 'Money Bag',
-      'description': 'A brown leather money bag with a zipper.',
+      'description':
+          'A brown leather money bag with a zipper. \nLost Item Post \nPosted By: Tamim Iqbal\nContact Info: 016562356',
       'imageUrl': 'assets/images/Money_bag.jpg',
       'poster': 'Tamim Iqbal',
       'timeAgo': '5 hours ago',
     },
     {
       'title': 'TWS',
-      'description': 'A pair of wireless earphones, black color.',
+      'description':
+          'A pair of wireless earphones, black color. \nLost Item Post \nPosted By: Sourov \nContact Info: 016567152',
       'imageUrl': 'assets/images/TWS.jpg',
       'poster': 'Sourov',
       'timeAgo': '2 days ago',
     },
     {
       'title': 'Mobile',
-      'description': 'An iPhone 13, space gray, with a cracked screen.',
+      'description':
+          'An iPhone 13, space gray, with a cracked screen. \nLost Item Post \nPosted By: Taifur \nContact Info: 0197267221',
       'imageUrl': 'assets/images/mobile.jpg',
       'poster': 'Taifur',
       'timeAgo': '1 week ago',
@@ -42,14 +45,16 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, String>> foundItems = [
     {
       'title': 'Umbrella',
-      'description': 'A red umbrella, slightly worn, found near the park.',
+      'description':
+          'A red umbrella, slightly worn, found near the park. \nFound Item Post \nPosted By: Shuvo \nContact Info: 015862723',
       'imageUrl': 'assets/images/umbrella.jpg',
       'poster': 'Shuvo',
       'timeAgo': '2 days ago',
     },
     {
       'title': 'Id Card',
-      'description': 'A student ID card, Daffodil International University.',
+      'description':
+          'A student ID card, Daffodil International University.\nFound Item Post \nPosted By: Nahid \nContact Info: 018623567',
       'imageUrl': 'assets/images/Id_card.jpg',
       'poster': 'Nahid',
       'timeAgo': '4 months ago',
@@ -57,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {
       'title': 'Calculator',
       'description':
-          'A scientific calculator, brand Casio, found in the classroom.',
+          'A scientific calculator, brand Casio, found in the classroom.\nFound Item Post \nPosted By: Turzo \nContact Info: 0175234567',
       'imageUrl': 'assets/images/calculator.jpg',
       'poster': 'Turzo',
       'timeAgo': '1 day ago',
@@ -275,7 +280,7 @@ class HomeContent extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             color: Colors.blue[100],
             child: const Text(
-              "Found Items",
+              "Lost & Found Items",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
