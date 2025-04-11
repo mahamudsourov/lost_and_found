@@ -6,7 +6,8 @@ class ItemCard extends StatelessWidget {
   final String imageUrl;
   final bool showClaimButton;
 
-  ItemCard({
+  // ignore: use_key_in_widget_constructors
+  const ItemCard({
     required this.title,
     required this.description,
     required this.imageUrl,
@@ -14,7 +15,8 @@ class ItemCard extends StatelessWidget {
   });
 
   void claimItem(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Claim request sent for $title!')));
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Claim request sent for $title!')));
   }
 
   @override
@@ -23,7 +25,8 @@ class ItemCard extends StatelessWidget {
       margin: EdgeInsets.all(10),
       elevation: 3,
       child: ListTile(
-        leading: Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover),
+        leading:
+            Image.network(imageUrl, width: 50, height: 50, fit: BoxFit.cover),
         title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(description),
         trailing: showClaimButton

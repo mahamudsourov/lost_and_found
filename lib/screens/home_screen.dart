@@ -6,27 +6,36 @@ import 'profile_screen.dart';
 import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  final Function(bool)? toggleTheme;
+
+  const HomeScreen({super.key, this.toggleTheme});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
   List<Map<String, String>> lostItems = [
     {
       'title': 'Money Bag',
       'description': 'A brown leather money bag with a zipper.',
       'imageUrl': 'assets/images/Money_bag.jpg',
+      'poster': 'Tamim Iqbal',
+      'timeAgo': '5 hours ago',
     },
     {
       'title': 'TWS',
       'description': 'A pair of wireless earphones, black color.',
       'imageUrl': 'assets/images/TWS.jpg',
+      'poster': 'Ahmed Ali',
+      'timeAgo': '2 days ago',
     },
     {
       'title': 'Mobile',
       'description': 'An iPhone 13, space gray, with a cracked screen.',
       'imageUrl': 'assets/images/mobile.jpg',
+      'poster': 'Sarah Khan',
+      'timeAgo': '1 week ago',
     },
   ];
 
@@ -35,21 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
       'title': 'Umbrella',
       'description': 'A red umbrella, slightly worn, found near the park.',
       'imageUrl': 'assets/images/umbrella.jpg',
+      'poster': 'John Doe',
+      'timeAgo': '2 days ago',
     },
     {
       'title': 'Id Card',
       'description': 'A student ID card, Daffodil International University.',
       'imageUrl': 'assets/images/Id_card.jpg',
+      'poster': 'Emily Clark',
+      'timeAgo': '4 months ago',
     },
     {
       'title': 'Calculator',
       'description':
           'A scientific calculator, brand Casio, found in the classroom.',
       'imageUrl': 'assets/images/calculator.jpg',
+      'poster': 'Mark Smith',
+      'timeAgo': '1 day ago',
     },
   ];
 
   int _selectedIndex = 0;
+  TextEditingController _searchController = TextEditingController();
 
   void _onItemTapped(int index) {
     setState(() {
@@ -73,8 +89,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Lost & Found')),
-        backgroundColor: Color(0xFF007BFF),
+        title: const Center(child: Text('Lost & Found')),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // You can add search functionality here.
+            },
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -82,18 +106,22 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF007BFF),
-              ), 
+                color: Theme.of(context).colorScheme.primary,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.account_circle, size: 60, color: Colors.white),
-                  SizedBox(height: 10),
-                  Text(
+                  const Icon(
+                    Icons.account_circle,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
                     "Tamim Iqbal",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                  Text(
+                  const Text(
                     "Tamim@gmail.com",
                     style: TextStyle(color: Colors.white70),
                   ),
@@ -101,8 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
               onTap:
                   () => Navigator.push(
                     context,
@@ -110,12 +138,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
               onTap:
                   () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => SettingsScreen()),
+                    MaterialPageRoute(
+                      builder:
+                          (_) =>
+                              SettingsScreen(toggleTheme: widget.toggleTheme),
+                    ),
                   ),
             ),
           ],
@@ -123,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
@@ -135,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFF007BFF), 
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
@@ -143,8 +175,8 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton.extended(
-            label: Text("Post Lost Item"),
-            icon: Icon(Icons.add),
+            label: const Text("Post Lost Item"),
+            icon: const Icon(Icons.add),
             backgroundColor: Colors.red,
             onPressed: () {
               Navigator.push(
@@ -163,11 +195,11 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           FloatingActionButton.extended(
-            label: Text("Post Found Item"),
-            icon: Icon(Icons.add),
-            backgroundColor: Color(0xFF28A745), 
+            label: const Text("Post Found Item"),
+            icon: const Icon(Icons.add),
+            backgroundColor: const Color(0xFF28A745),
             onPressed: () {
               Navigator.push(
                 context,
@@ -195,82 +227,97 @@ class HomeContent extends StatelessWidget {
   final List<Map<String, String>> lostItems;
   final List<Map<String, String>> foundItems;
 
-  HomeContent({required this.lostItems, required this.foundItems});
+  const HomeContent({
+    super.key,
+    required this.lostItems,
+    required this.foundItems,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-         
+          // Search bar is located here.
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: TextField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search),
+                hintText: 'Search by caption...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
+          // Recent Posts Text
           Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             color: Colors.blue[100],
-            child: Text(
+            child: const Text(
               "Recent Posts",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(height: 20),
-        
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildItemContainer(
-                'Money Bag',
-                'A brown leather money bag with a zipper.',
-                'assets/images/Money_bag.jpg',
-              ),
-              _buildItemContainer(
-                'TWS',
-                'A pair of wireless earphones, black color.',
-                'assets/images/TWS.jpg',
-              ),
-              _buildItemContainer(
-                'Mobile',
-                'An iPhone 13, space gray, with a cracked screen.',
-                'assets/images/mobile.jpg',
-              ),
-            ],
+          const SizedBox(height: 20),
+          // Lost Items Container Row
+          Expanded(
+            child: ListView.builder(
+              itemCount: lostItems.length,
+              itemBuilder: (context, index) {
+                return _buildItemPost(
+                  lostItems[index]['poster']!,
+                  lostItems[index]['description']!,
+                  lostItems[index]['imageUrl']!,
+                  lostItems[index]['timeAgo']!,
+                );
+              },
+            ),
           ),
-          SizedBox(height: 20),
-          
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildItemContainer(
-                'Umbrella',
-                'A red umbrella, slightly worn, found near the park.',
-                'assets/images/umbrella.jpg',
-              ),
-              _buildItemContainer(
-                'Id Card',
-                'A student ID card, Daffodil International University.',
-                'assets/images/Id_card.jpg',
-              ),
-              _buildItemContainer(
-                'Calculator',
-                'A scientific calculator, brand Casio, found in the classroom.',
-                'assets/images/calculator.jpg',
-              ),
-            ],
+          const SizedBox(height: 20),
+          // Heading for Found Items Section
+          Container(
+            padding: const EdgeInsets.all(8),
+            color: Colors.blue[100],
+            child: const Text(
+              "Found Items",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(height: 20),
+          // Found Items Container Row
+          Expanded(
+            child: ListView.builder(
+              itemCount: foundItems.length,
+              itemBuilder: (context, index) {
+                return _buildItemPost(
+                  foundItems[index]['poster']!,
+                  foundItems[index]['description']!,
+                  foundItems[index]['imageUrl']!,
+                  foundItems[index]['timeAgo']!,
+                );
+              },
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildItemContainer(
-    String title,
+  // Build each post container with image, description, like/comment/share buttons
+  Widget _buildItemPost(
+    String poster,
     String description,
     String imageUrl,
+    String timeAgo,
   ) {
     return Container(
-      width: 100,
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -281,18 +328,71 @@ class HomeContent extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(imageUrl, height: 80, width: 80, fit: BoxFit.cover),
-          SizedBox(height: 8),
-          Text(
-            title,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          // Poster's Name and Time
+          Row(
+            children: [
+              const CircleAvatar(radius: 20, backgroundColor: Colors.blue),
+              const SizedBox(width: 10),
+              Text(
+                poster,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                timeAgo,
+                style: const TextStyle(color: Colors.grey, fontSize: 12),
+              ),
+            ],
           ),
-          SizedBox(height: 4),
-          Text(
-            description,
-            style: TextStyle(fontSize: 12),
-            textAlign: TextAlign.center,
+          const SizedBox(height: 10),
+
+          // Item Image
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              imageUrl,
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+          const SizedBox(height: 10),
+
+          // Item Description
+          Text(description, style: const TextStyle(fontSize: 14)),
+          const SizedBox(height: 10),
+
+          // Like, Comment, Share buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: const [
+                  Icon(Icons.favorite_border, size: 16, color: Colors.red),
+                  SizedBox(width: 5),
+                  Text('0', style: TextStyle(fontSize: 14)),
+                ],
+              ),
+              Row(
+                children: const [
+                  Icon(Icons.comment_outlined, size: 16, color: Colors.grey),
+                  SizedBox(width: 5),
+                  Text('0', style: TextStyle(fontSize: 14)),
+                ],
+              ),
+              Row(
+                children: const [
+                  Icon(Icons.share_outlined, size: 16, color: Colors.blue),
+                  SizedBox(width: 5),
+                  Text('0', style: TextStyle(fontSize: 14)),
+                ],
+              ),
+            ],
           ),
         ],
       ),

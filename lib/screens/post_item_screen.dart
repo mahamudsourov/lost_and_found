@@ -6,9 +6,11 @@ class PostItemScreen extends StatefulWidget {
   final String category;
   final Function(Map<String, String>) onNewItemPosted;
 
+  // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
   PostItemScreen({required this.category, required this.onNewItemPosted});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PostItemScreenState createState() => _PostItemScreenState();
 }
 

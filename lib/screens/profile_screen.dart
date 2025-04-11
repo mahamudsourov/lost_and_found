@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: use_key_in_widget_constructors
 class ProfileScreen extends StatelessWidget {
-  final List<Map<String, String>> claimedItems =
-      []; 
-  final List<Map<String, String>> postedItems =
-      []; 
+  final List<Map<String, String>> claimedItems = [];
+  final List<Map<String, String>> postedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -53,67 +52,59 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  
   void _showPostedItems(BuildContext context) {
     showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text("My Posted Items"),
-            content:
-                postedItems.isEmpty
-                    ? Text(
-                      "No items posted yet.",
-                    ) 
-                    : Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children:
-                          postedItems.map((item) {
-                            return ListTile(
-                              title: Text(item['title']!),
-                              subtitle: Text(item['description']!),
-                            );
-                          }).toList(),
-                    ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text("Close"),
+      builder: (context) => AlertDialog(
+        title: Text("My Posted Items"),
+        content: postedItems.isEmpty
+            ? Text(
+                "No items posted yet.",
+              )
+            : Column(
+                mainAxisSize: MainAxisSize.min,
+                children: postedItems.map((item) {
+                  return ListTile(
+                    title: Text(item['title']!),
+                    subtitle: Text(item['description']!),
+                  );
+                }).toList(),
               ),
-            ],
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Close"),
           ),
+        ],
+      ),
     );
   }
 
-  
   void _showClaimedItems(BuildContext context) {
     showDialog(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text("Claimed Items"),
-            content:
-                claimedItems.isEmpty
-                    ? Text(
-                      "No items claimed yet.",
-                    ) 
-                    : Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children:
-                          claimedItems.map((item) {
-                            return ListTile(
-                              title: Text(item['title']!),
-                              subtitle: Text(item['description']!),
-                            );
-                          }).toList(),
-                    ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text("Close"),
+      builder: (context) => AlertDialog(
+        title: Text("Claimed Items"),
+        content: claimedItems.isEmpty
+            ? Text(
+                "No items claimed yet.",
+              )
+            : Column(
+                mainAxisSize: MainAxisSize.min,
+                children: claimedItems.map((item) {
+                  return ListTile(
+                    title: Text(item['title']!),
+                    subtitle: Text(item['description']!),
+                  );
+                }).toList(),
               ),
-            ],
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Close"),
           ),
+        ],
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignupScreenState createState() => _SignupScreenState();
 }
 
@@ -56,8 +57,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       fillColor: Colors.blue[50],
                     ),
                     onSaved: (value) => name = value,
-                    validator:
-                        (value) => value!.isEmpty ? 'Enter your name' : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'Enter your name' : null,
                   ),
                   SizedBox(height: 20),
                   TextFormField(
@@ -71,8 +72,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       fillColor: Colors.blue[50],
                     ),
                     onSaved: (value) => email = value,
-                    validator:
-                        (value) => value!.isEmpty ? 'Enter your email' : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'Enter your email' : null,
                   ),
                   SizedBox(height: 20),
                   TextFormField(
@@ -89,8 +90,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       fillColor: Colors.blue[50],
                     ),
                     onSaved: (value) => id = value,
-                    validator:
-                        (value) => value!.isEmpty ? 'Enter your ID' : null,
+                    validator: (value) =>
+                        value!.isEmpty ? 'Enter your ID' : null,
                   ),
                   SizedBox(height: 30),
                   ElevatedButton(
@@ -101,9 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors
-                              .blueAccent, 
+                      backgroundColor: Colors.blueAccent,
                       padding: EdgeInsets.symmetric(
                         vertical: 15,
                         horizontal: 100,
