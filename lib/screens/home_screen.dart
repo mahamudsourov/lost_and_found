@@ -27,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
       'title': 'TWS',
       'description': 'A pair of wireless earphones, black color.',
       'imageUrl': 'assets/images/TWS.jpg',
-      'poster': 'Ahmed Ali',
+      'poster': 'Sourov',
       'timeAgo': '2 days ago',
     },
     {
       'title': 'Mobile',
       'description': 'An iPhone 13, space gray, with a cracked screen.',
       'imageUrl': 'assets/images/mobile.jpg',
-      'poster': 'Sarah Khan',
+      'poster': 'Taifur',
       'timeAgo': '1 week ago',
     },
   ];
@@ -44,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
       'title': 'Umbrella',
       'description': 'A red umbrella, slightly worn, found near the park.',
       'imageUrl': 'assets/images/umbrella.jpg',
-      'poster': 'John Doe',
+      'poster': 'Shuvo',
       'timeAgo': '2 days ago',
     },
     {
       'title': 'Id Card',
       'description': 'A student ID card, Daffodil International University.',
       'imageUrl': 'assets/images/Id_card.jpg',
-      'poster': 'Emily Clark',
+      'poster': 'Nahid',
       'timeAgo': '4 months ago',
     },
     {
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'description':
           'A scientific calculator, brand Casio, found in the classroom.',
       'imageUrl': 'assets/images/calculator.jpg',
-      'poster': 'Mark Smith',
+      'poster': 'Turzo',
       'timeAgo': '1 day ago',
     },
   ];
@@ -91,14 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Center(child: Text('Lost & Found')),
         backgroundColor: Theme.of(context).colorScheme.primary,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // You can add search functionality here.
-            },
-          ),
-        ],
+        // Removed the search icon here
       ),
       drawer: Drawer(
         child: ListView(
