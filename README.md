@@ -27,6 +27,11 @@ A mobile application built using Flutter that helps users report and recover los
 
 ![image](https://github.com/user-attachments/assets/a3cf3b51-18bd-4baf-b808-aa98d9bbe4c8)
 
+Demo: Video:
+https://github.com/user-attachments/assets/bc4092e1-5e0a-4065-837f-c9ab64403220
+
+Project Report:
+[DIU_Lost_And_Found_2.0_final.pdf](https://github.com/user-attachments/files/19941056/DIU_Lost_And_Found_2.0_final.pdf)
 
 ## Getting Started
 
